@@ -1,7 +1,7 @@
 pipeline {
     environment {
         //This variable need be tested as string
-        varError = '1'
+        varError = '0'
     }
 
     agent any
