@@ -14,10 +14,8 @@ pipeline {
             steps {
                 echo "Failure"
                 error "failure test. It's work"
-                step([
-                      $class: 'Mailer',
-                      recipients: ['ci@example.com', emailextrecipients([[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']])].join(' ')
-                    ])
+                // step([ $class: 'Mailer', recipients: ['ci@example.com', emailextrecipients([[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']])].join(' ') ])
+                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: emailextrecipients([culprits(), requestor()])])
             }
         }
 
