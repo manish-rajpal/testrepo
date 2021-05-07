@@ -1,7 +1,5 @@
 pipeline {
-    environment {
-        //This variable need be tested as string
-        varError = '0'
+
     }
     agent any
     stages {
@@ -57,8 +55,8 @@ pipeline {
         }
     }
 }
-    }
 }
+
 
 
 
