@@ -21,7 +21,7 @@ pipeline {
 		stage('Robot Framework') {
                               steps {
                                     sleep(30)
-                                    bat 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests'
+                                    sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results RobotFrameWork/Tests'
                               }
                               post {
                                     always {
