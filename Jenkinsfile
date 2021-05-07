@@ -3,9 +3,7 @@ pipeline {
         //This variable need be tested as string
         varError = '0'
     }
-
     agent any
-
     stages {
 		stage('para'){
             parallel{
@@ -45,26 +43,7 @@ pipeline {
                                     }
                               }
                 }		
-        stage('Error') {
-            when {
-                expression { varError == '1' }
-            }
-            steps {
-                echo "Failure"
-                error "failure test. It's work"
-                // step([ $class: 'Mailer', recipients: ['ci@example.com', emailextrecipients([[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']])].join(' ') ])
-                step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: emailextrecipients([culprits(), requestor()])])
-            }
-        }
 
-        stage('Success') {
-            when {
-                expression { varError == '0' }
-            }
-            steps {
-                echo "ok"
-            }
-        }
     }
         post {
         always {
