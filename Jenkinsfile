@@ -15,7 +15,7 @@ pipeline {
                  stage('angular'){
                               steps{
                                     sleep(20)
-                                    bat 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
+                                    bat 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar &&  java -jar ./rawhttp.jar serve . -p 4200 &'
                               }
                 }
 		stage('Robot Framework') {
