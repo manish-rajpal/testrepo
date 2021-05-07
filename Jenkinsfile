@@ -9,7 +9,7 @@ pipeline {
             parallel{
                  stage('APIServer'){
                             steps{
-                                bat 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
+                                bat 'cd spring-petclinic-rest &&  mvn spring-boot:run &'
                             }
                 }
                  stage('angular'){
